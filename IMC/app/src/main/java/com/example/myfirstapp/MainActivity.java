@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     EditText e1;
     EditText e2;
-    Button b;
+    Button b,back;
     TextView result;
 
     float CalculateIMC(float weight,float height){
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
             e1 = (EditText)findViewById(R.id.ed1);
             e2 = (EditText)findViewById(R.id.ed2);
             b= (Button)findViewById(R.id.button);
+            back= (Button)findViewById(R.id.back);
             result=(TextView) findViewById(R.id.result);
+
             b.setOnClickListener(new View.OnClickListener(){
 
                 public void onClick(View v){
@@ -49,8 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-    }
+            back.setOnClickListener(new View.OnClickListener() {
 
-
-
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(),login.class);
+                    startActivity(i);
+                }
+            });
+        }
 }
